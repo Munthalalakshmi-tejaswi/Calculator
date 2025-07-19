@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: pink;
+      margin-top: 100px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <h1>❤️ Love Calculator ❤️</h1>
+  <input type="text" id="name1" placeholder="Your Name" />
+  <br/>
+  <input type="text" id="name2" placeholder="Crush's Name" />
+  <br/>
+  <button onclick="calculateLove()">Calculate Love %</button>
+  <div id="result"></div>
+
+  <script>
+    function calculateLove() {
+      const name1 = document.getElementById("name1").value.trim();
+      const name2 = document.getElementById("name2").value.trim();
+
+      if (name1 === "" || name2 === "") {
+        document.getElementById("result").innerText = "Please enter both names!";
+        return;
+      }
+
+      // Simple fun logic for percentage generation
+      let loveScore = Math.floor(Math.random() * 100) + 1;
+
+      let message = `${name1} ❤️ ${name2} = ${loveScore}% Love`;
+
+      if (loveScore > 80) {
+        message += " – Made for each other! 💖";
+      } else if (loveScore > 50) {
+        message += " – Good match! 💘";
+      } else {
+        message += " – Just friends maybe 😅";
+      }
+
+      document.getElementById("result").innerText = message;
+    }
+  </script>
+</body>
+</html>
